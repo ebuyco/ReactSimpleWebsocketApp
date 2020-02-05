@@ -1,6 +1,7 @@
 import App from 'next/app';
 import Layout from '../components/Layout';
-
+import { DefaultSeo } from 'next-seo'
+import SEO from '../next-seo.config'
 class MyApp extends App {
    static async getInitialProps({ Component, ctx}) {
             let pageProps = {};
@@ -15,6 +16,7 @@ class MyApp extends App {
 
             return(
                 <Layout>
+                      <DefaultSeo {...SEO} />
                      <Component {...pageProps}/>
                 </Layout>
             );
