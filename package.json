@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ebuyco/ReactSimpleWebsocketApp.git"
@@ -29,6 +27,7 @@
     "cacheable-response": "^2.0.0",
     "concurrently": "^5.1.0",
     "cookie-parser": "^1.4.4",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "file-loader": "^5.0.2",
     "next": "^9.2.1",
@@ -71,11 +70,8 @@
             "styled-components",
             {
               "ssr": true,
-              "displayName": true,
-              "minify": true,
-              "transpileTemplateLiterals": false
-            },
-            "babel-plugin-styled-components"
+              "displayName": true
+            }
           ]
         ]
       },
@@ -88,11 +84,8 @@
             "styled-components",
             {
               "ssr": true,
-              "displayName": true,
-              "minify": true,
-              "transpileTemplateLiterals": false
-            },
-            "babel-plugin-styled-components"
+              "displayName": true
+            }
           ]
         ]
       },
@@ -104,6 +97,15 @@
               "preset-env": {
                 "modules": "commonjs"
               }
+            }
+          ]
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
             }
           ]
         ]
