@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "dev": "next -p 7777",
+    "build": "next build",
+    "serve": "NODE_ENV=production node server.js",
+    "start": "next start",
+    "test": "NODE_ENV=test jest --watch",
+    "heroku-postbuild": "next build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ebuyco/ReactSimpleWebsocketApp.git"
