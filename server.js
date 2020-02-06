@@ -14,7 +14,20 @@ nextApp.prepare().then(() => {
 
     const server = require('http').createServer(app);
     const io = require('socket.io')(server);
-    io.on('connection', () => { /* … */ });
+
+    // app.get('/', function(req,res){
+    //   res.send('<h1>HEllo world</h1>')
+    //   })
+
+    io.on('connection', function(socket) {
+          console.log('your connected ');
+          socket.on('chat messages', function(msg){
+              console.log('message: ' + JSON.stringify(msg));
+             io.emit('chat message', msg);
+          })
+    }
+      );
+
 
   app.use(cookieParser());
   app.use(bodyParser.json());
@@ -23,7 +36,7 @@ nextApp.prepare().then(() => {
 
   app.get('*', (req, res) => handle(req, res));
 
-  app.listen(PORT, (err) => {
+  server.listen(PORT, (err) => {
     if (err) throw err;
     console.log(`ready at http://localhost:${PORT}`);
   });

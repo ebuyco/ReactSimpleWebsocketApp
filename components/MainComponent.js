@@ -8,9 +8,9 @@ const MainComponent = () => {
   return(
         <CardStyle>
               <div className="card__component">
-                      <h5 className="card__text__chat">
+                      <h4 className="card__text__chat">
                             This is component text
-                      </h5>
+                      </h4>
                       <h5 className="card__text__chat__receive">
                           This is component text 2
                       </h5>
