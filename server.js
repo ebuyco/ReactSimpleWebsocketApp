@@ -12,6 +12,10 @@ nextApp.prepare().then(() => {
   const app = express();
 
 
+    const server = require('http').createServer(app);
+    const io = require('socket.io')(server);
+    io.on('connection', () => { /* … */ });
+
   app.use(cookieParser());
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));

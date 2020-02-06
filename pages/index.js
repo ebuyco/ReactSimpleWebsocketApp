@@ -1,4 +1,5 @@
 import MainComponent from '../components/MainComponent';
+
 const Home = () => (
     <>
      <MainComponent/>
