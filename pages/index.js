@@ -1,7 +1,7 @@
-
+import MainComponent from '../components/MainComponent';
 const Home = () => (
     <>
-      <h1>Test</h1>
+     <MainComponent/>
     </>
 );
 
