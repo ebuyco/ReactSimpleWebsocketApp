@@ -13,7 +13,7 @@ const theme = {
 
 
 const StyledPage = styled.div`
-  background: white;
+
   color: ${(props) => props.theme.black};
 `;
 
@@ -24,9 +24,15 @@ const InnerPage = styled.div`
 
 
 const GlobalStyles = createGlobalStyle`
-    @font-face {
+   @font-face {
     font-family: 'Fira-Mono-Regular';
     src: url('../static/FiraMono-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Fira-Mono-Bold';
+    src: url('../static/FiraMono-Bold.ttf');
     font-weight: normal;
     font-style: normal;
   }

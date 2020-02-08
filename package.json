@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "next -p 7777",
-    "build": "next build",
     "serve": "NODE_ENV=production node server.js",
     "start": "next start",
     "test": "NODE_ENV=test jest --watch",
-    "heroku-postbuild": "next build"
+    "aws-build": "next build",
+    "lint:styled": "stylelint './components/styles/**/*.js'"
   },
   "repository": {
     "type": "git",

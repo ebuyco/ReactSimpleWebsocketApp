@@ -26,22 +26,14 @@ nextApp.prepare().then(() => {
              io.emit('chat message', msg);
           })
 
-          socket.on('sendMessage', (message, callback) => {
-            const user = getUser(socket.id);
-
-            io.to(user.room).emit('message', { user: user.name, text: message });
-
-            callback();
+          socket.on('message', (msg) => {
+                io.emit('message', msg);
           });
 
-          socket.on('disconnect', () => {
-            const user = removeUser(socket.id);
 
-            if(user) {
-              io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
-              io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
-            }
-          })
+          socket.on('disconnect', function () {
+            io.emit('broadcast', '[Server]: Bye, bye, stranger!');
+          });
     }
       );
 
