@@ -1,6 +1,6 @@
-import React, { useState }  from 'react';
+import React, { useState, useContext }  from 'react';
 import Cards from './styles/Cards';
-
+import { CTX } from './DataStore';
 
 const MainComponent = () => {
       const [toggleVisible, setToggleHandler] = useState(false);
@@ -20,6 +20,14 @@ const MainComponent = () => {
             removeMenu(classMenu === '' ? 'open' : '' )
       }
 
+      const [allChats] =  useContext(CTX);
+      console.log({allChats});
+
+      const topics = Object.keys(allChats);
+
+      const [activeTopic, changeActiveTopic ] = useState(topics[0]);
+      const [textValue, changeTextValue] = useState('');
+
   return(
         <>
           <Cards>
@@ -30,7 +38,7 @@ const MainComponent = () => {
                                    SimpleReact Socket.io
                               </h4>
                               <h5 className="card__text__chat__receive">
-                                 UserName
+                                 {activeTopic}
                               </h5>
                       </div>
 
@@ -50,8 +58,11 @@ const MainComponent = () => {
                                  >
                                       <ul>
                                             {
-                                                ['topic'].map(topic => (
-                                                    <li key={topic}>
+                                                topics.map(topic => (
+                                                    <li 
+                                                    key={topic}
+                                                    onClick={(e) => changeActiveTopic(e.target.innerText)}
+                                                    >
                                                           <h5>{topic}</h5>
                                                     </li>
                                                 ))
@@ -78,7 +89,11 @@ const MainComponent = () => {
                                         <div className="text__chat__wrapper">
                                             <input type='text'
                                               className='form-input'
-                                              placeholder='Chat Me'/>
+                                              placeholder='Chat Me'
+                                              label="Chat Me"
+                                              value={textValue}
+                                              onChange={(e) => changeTextValue(e.target.value)}
+                                              />
                                                <button
                                                   className='button-submit-me-form'
                                                   type='submit'

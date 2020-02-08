@@ -1,9 +1,11 @@
 import MainComponent from '../components/MainComponent';
+import DataStore from '../components/DataStore';
+
 
 const Home = () => (
-    <>
-     <MainComponent/>
-    </>
+    <DataStore>
+        <MainComponent/>
+    </DataStore>
 );
 
 export default Home;
