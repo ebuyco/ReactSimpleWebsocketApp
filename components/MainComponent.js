@@ -75,6 +75,16 @@ const MainComponent = () => {
                                                 ))
                                               }
                                         </div>
+                                        <div className="text__chat__wrapper">
+                                            <input type='text'
+                                              className='form-input'
+                                              placeholder='Chat Me'/>
+                                               <button
+                                                  className='button-submit-me-form'
+                                                  type='submit'
+                                                  >Send</button>
+
+                                        </div>
                               </div>
                       </div>
               </div>

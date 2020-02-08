@@ -80,7 +80,7 @@ const Cards = styled.div`
         align-items: center;
         cursor: pointer;
         top: 90vh;
-        left: 450px;
+        left: 40vw;
       }
       .button__content{
         color: #FFF;
@@ -181,6 +181,49 @@ const Cards = styled.div`
               align-items: flex-end; 
               margin-right: 14px;
             }
+            .text__chat__wrapper{
+               margin: 0 auto;
+               display: flex;
+               width: 100%;
+               justify-content: center;
+               align-items: center;
+            }
+
+            .form-input{
+              font-size: 18px;
+              background: rgba(255, 255, 255, 0);
+              color: #000;
+              outline: none;
+              padding: 1rem;
+              border: none;
+              border-bottom: 1px solid #000000;
+              width: 100%;
+              justify-content: center;
+              align-items: center;
+              max-width: 80%;
+                &:active, &:focus, &:focus-within{
+                  background: rgba(255, 255, 255, 0);
+                  outline: none;
+                  border-bottom: 1px solid #000000;
+                }
+            }
+            .button-submit-me-form {
+              font-family: inherit;
+              font-size: 0.8em;
+              padding: 1em;
+              margin-top: 2vh;
+              cursor: pointer;
+              background-color: #43A047;
+              color: #fff;
+              border: 0.2em solid #ffffff;
+              outline: none;
+              font-weight: 600;
+              &:hover{
+                background-color: #00796B;
+                border-color: 0.2em solid #fff ;
+              }
+            }
+           
 `;
 
 export default Cards;
