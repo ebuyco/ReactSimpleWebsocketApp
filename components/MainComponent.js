@@ -35,17 +35,19 @@ const MainComponent = () => {
                       </div>
 
                       <div className="card__chat__wrapper">
-                              <div className={`chat__navigation__toggle ${classMenu}`}>
-                                <div
-                                className="menu__toggle"
-                                onClick={menuHandler}
-                                >
-                                    <img
-                                    className="nav__icon"
-                                    alt="icon__nav"/>
-                                </div>
+
+                              <div className="chat__navigation__toggle">
+                                    <div
+                                      className="menu__toggle"
+                                      onClick={menuHandler}
+                                      >
+                                          <img
+                                          className={`nav__icon ${classMenu}`}
+                                          src="../static/assets/toggle__closed.png"
+                                            alt="icon__nav"/>
+                                      </div>
                                  <div
-                                 className="navigation__toggle__content"
+                                 className={`navigation__toggle__content ${classMenu}`}
                                  >
                                       <h4>Test1</h4>
                                  </div>

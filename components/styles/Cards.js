@@ -37,18 +37,25 @@ const Cards = styled.div`
       }
       .chat__navigation__toggle{
               /* flex: 1 1 400px; */
-              flex: 1 1 250px;
-              text-align: center;
-              flex-wrap: wrap;
-              background-color:#673AB7 ;
-              border-right: 1px solid #000000;
-              box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+
+                  flex: 1 1 250px;
+                  text-align: center;
+                  flex-wrap: wrap;
+
+
       }
       .navigation__toggle__content{
-            padding: 2rem;
-            text-align: left;
-            font-family: 'Fira-Mono-Bold';
-            color: #ffffff;
+            display: none;
+            &.open{
+                display: block;
+                padding: 2rem;
+                text-align: left;
+                font-family: 'Fira-Mono-Bold';
+                color: #ffffff;
+                background-color:#673AB7 ;
+                border-right: 1px solid #000000;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            }
       }
       .chat__main__content{
               flex: 10 5 400px;
@@ -129,17 +136,23 @@ const Cards = styled.div`
        .menu__toggle{
               width: 100%;
               height: auto;
-              max-width: 2rem;
-              position: absolute;
-              left: 22rem;
-              top: 20rem;
-              background-size: cover;
+
+
+              .nav__icon{
+                 background: url(../static/assets/toggle__closed.png) center center;
+                 background-size: cover;
+                 width: 100%;
+                 max-width: 2rem;
+                  position: absolute;
+                  left: 8rem;
+                  top: 20rem;
                 &.open{
+                  left: 22rem;
                   background: url(../static/assets/toggle__open.png) center center;
                 }
-                &.close{
-                  background: url(../static/assets/toggle__closed.png) center center;
-                }
+              }
+
+
             }
 `;
 
