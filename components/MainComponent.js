@@ -20,7 +20,7 @@ const MainComponent = () => {
             removeMenu(classMenu === '' ? 'open' : '' )
       }
 
-      const [allChats] =  useContext(CTX);
+      const {allChats, sendChatAction, user} =  useContext(CTX);
       console.log({allChats});
 
       const topics = Object.keys(allChats);
@@ -73,7 +73,7 @@ const MainComponent = () => {
                               <div className="chat__main__content">
                                         <div className="chat__main__content__area">
                                               {
-                                                [{from: 'user', msg: 'hello'}].map((chat, i) => (
+                                                  allChats[activeTopic].map((chat, i) => (
                                                     <div
                                                     className="text__component"
                                                     key={i}
@@ -97,6 +97,14 @@ const MainComponent = () => {
                                                <button
                                                   className='button-submit-me-form'
                                                   type='submit'
+                                                  onClick={() => {
+                                                    sendChatAction({
+                                                      from: user,
+                                                      msg: textValue,
+                                                      topic: activeTopic
+                                                    });
+                                                    changeTextValue('');
+                                                  }}
                                                   >Send</button>
 
                                         </div>

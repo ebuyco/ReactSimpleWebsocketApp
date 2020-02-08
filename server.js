@@ -6,14 +6,12 @@ const dev = process.env.NODE_DEV !== 'production';
 const nextApp = next({dev});
 const handle = nextApp.getRequestHandler();
 const cookieParser = require('cookie-parser');
-
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
 nextApp.prepare().then(() => {
-  const app = express();
-
-
-    const server = require('http').createServer(app);
-    const io = require('socket.io')(server);
+  
 
     // app.get('/', function(req,res){
     //   res.send('<h1>HEllo world</h1>')
@@ -26,15 +24,8 @@ nextApp.prepare().then(() => {
              io.emit('chat message', msg);
           })
 
-          socket.on('message', (msg) => {
-                io.emit('message', msg);
-          });
-
-
-          socket.on('disconnect', function () {
-            io.emit('broadcast', '[Server]: Bye, bye, stranger!');
-          });
-    }
+         
+      }
       );
 
 
