@@ -70,7 +70,7 @@ const MainComponent = () => {
                                                       <label
                                                       className="chips"
                                                       >{chat.from}</label>
-                                                        <h4>{chat.msg}</h4>
+                                                        <h4 className="message_align">{chat.msg}</h4>
                                                     </div>
                                                 ))
                                               }

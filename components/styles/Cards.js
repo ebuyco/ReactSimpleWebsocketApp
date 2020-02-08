@@ -33,7 +33,7 @@ const Cards = styled.div`
             display: flex;
             width: 100%;
             margin: 0 auto;
-           margin-top: -2rem;
+            margin-top: -1.55555rem;
       }
       .chat__navigation__toggle{
               /* flex: 1 1 400px; */
@@ -47,6 +47,8 @@ const Cards = styled.div`
       .navigation__toggle__content{
             display: none;
             &.open{
+                height: 100vh;
+                position: relative; 
                 display: block;
                 padding: 2rem;
                 text-align: left;
@@ -72,13 +74,13 @@ const Cards = styled.div`
       .button__messenger{
         position: fixed;
         display: flex;
-        margin: 0 auto;
-        width: 100%;
+         width: 100%;
         text-align: center;
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        top: 80vh;
+        top: 90vh;
+        left: 450px;
       }
       .button__content{
         color: #FFF;
@@ -86,7 +88,6 @@ const Cards = styled.div`
         border-radius: 50%;
         background-size: cover;
         display: block;
-        position: relative;
         width: 55px;
         height: 55px;
         line-height: 52px;
@@ -131,6 +132,7 @@ const Cards = styled.div`
           text-align: center;
           left: 45vw;
           z-index: 1;
+          clip-path: circle(50% at 50% 50%);
        }
 
        .menu__toggle{
@@ -158,8 +160,26 @@ const Cards = styled.div`
             }
 
             .text__component{
-                  background-color: blue;
-                  color: #ffffff;
+                 padding: 2rem; 
+                 color: #fff;
+                 display: block;
+                 justify-content: flex-start;
+                 align-items: center;
+                 background-color: #0A51A8;
+                 clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+            }
+            .chips{
+              text-align: left;
+              display: flex;
+              justify-content: flex-start;
+              align-items: flex-start; 
+              margin-left: 14px;
+            }
+            .message_align{
+              text-align: right;
+              justify-content: flex-end;
+              align-items: flex-end; 
+              margin-right: 14px;
             }
 `;
 
