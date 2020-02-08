@@ -38,7 +38,7 @@ const Cards = styled.div`
       .chat__navigation__toggle{
               /* flex: 1 1 400px; */
 
-                  flex: 1 1 250px;
+                  flex: 1 1 200px;
                   text-align: center;
                   flex-wrap: wrap;
 
@@ -136,19 +136,21 @@ const Cards = styled.div`
        .menu__toggle{
               width: 100%;
               height: auto;
-
-
+              position: relative;
+              top: 0;
+              left: 0;
+              cursor: pointer;
               .nav__icon{
-                 background: url(../static/assets/toggle__closed.png) center center;
-                 background-size: cover;
-                 width: 100%;
-                 max-width: 2rem;
-                  position: absolute;
-                  left: 8rem;
-                  top: 20rem;
-                &.open{
-                  left: 22rem;
                   background: url(../static/assets/toggle__open.png) center center;
+                  background-size: cover;
+                  width: 100%;
+                  max-width: 2rem;
+                  position: absolute;
+                  left: 130px;
+                  top: 40px;
+                &.open{
+                  left: 200px;
+                  background: url(../static/assets/toggle__closed.png) center center;
                 }
               }
 

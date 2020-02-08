@@ -35,7 +35,6 @@ const MainComponent = () => {
                       </div>
 
                       <div className="card__chat__wrapper">
-
                               <div className="chat__navigation__toggle">
                                     <div
                                       className="menu__toggle"
@@ -49,7 +48,15 @@ const MainComponent = () => {
                                  <div
                                  className={`navigation__toggle__content ${classMenu}`}
                                  >
-                                      <h4>Test1</h4>
+                                      <ul>
+                                            {
+                                                ['topic'].map(topic => (
+                                                    <li key={topic}>
+                                                          <h5>{topic}</h5>
+                                                    </li>
+                                                ))
+                                            }
+                                      </ul>
                                  </div>
                               </div>
                               <div className="chat__main__content">
