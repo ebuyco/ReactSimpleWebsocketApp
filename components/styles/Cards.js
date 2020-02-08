@@ -156,6 +156,11 @@ const Cards = styled.div`
 
 
             }
+
+            .text__component{
+                  background-color: blue;
+                  color: #ffffff;
+            }
 `;
 
 export default Cards;

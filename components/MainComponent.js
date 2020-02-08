@@ -12,7 +12,7 @@ const MainComponent = () => {
       }
 
       const [menuVisible, setMenuHandler] = useState(false);
-      const [classMenu, removeMenu] = useState('');
+      const [classMenu, removeMenu] = useState('open');
 
 
       const menuHandler = () => {
@@ -61,7 +61,19 @@ const MainComponent = () => {
                               </div>
                               <div className="chat__main__content">
                                         <div className="chat__main__content__area">
-                                                <h4>Test1</h4>
+                                              {
+                                                [{from: 'user', msg: 'hello'}].map((chat, i) => (
+                                                    <div
+                                                    className="text__component"
+                                                    key={i}
+                                                    >
+                                                      <label
+                                                      className="chips"
+                                                      >{chat.from}</label>
+                                                        <h4>{chat.msg}</h4>
+                                                    </div>
+                                                ))
+                                              }
                                         </div>
                               </div>
                       </div>
