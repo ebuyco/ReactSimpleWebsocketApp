@@ -50,7 +50,7 @@ const DataStore = (props) => {
 
         if (!socket){
             socket = io(':8081');
-            socket.on('chat message', function(msg){
+            socket.on('chat message', msg =>{
                dispatch({
                  type: 'RECEIVE_MESSAGE',
                  payload: msg

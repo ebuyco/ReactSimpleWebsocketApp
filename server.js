@@ -13,11 +13,19 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
 
+    // app.get('/', function(req,res){
+    //   res.send('<h1>HEllo world</h1>')
+    //   });
+
+    app.get('*', (req, res) => {
+      return handle(req, res)
+    })
+
   io.on('connection', socket =>{
     console.log('your connected ');
-    socket.on('message', msg => {
+    socket.on('chat message', msg => {
         console.log('message: ' + JSON.stringify(msg));
-        socket.broadcast.emit('message', msg);
+        io.emit('message', msg);
     })
 
   }
@@ -26,19 +34,13 @@ const io = require('socket.io')(server);
 nextApp.prepare().then(() => {
 
 
-    // app.get('/', function(req,res){
-    //   res.send('<h1>HEllo world</h1>')
-    //   })
-
-
 
   app.use(cookieParser());
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
 
-  app.get('*', (req, res) => handle(req, res));
-
+  // app.get('*', (req, res) => handle(req, res));
 
 
   server.listen(PORT, (err) => {
