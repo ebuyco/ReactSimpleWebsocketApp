@@ -45,7 +45,7 @@ function sendChatAction(value){
 
 
 
-const DataStore = (props) => {
+export default function DataStore(props) {
   const [allChats, dispatch] = useReducer(reducer, initState);
 
         if (!socket){
@@ -56,8 +56,8 @@ const DataStore = (props) => {
                  payload: msg
                });
                console.log({msg});
-            })
-        }
+            });
+        };
 
         const user = 'ernie' + Math.random(100).toFixed(2);
 
@@ -65,7 +65,7 @@ const DataStore = (props) => {
           <CTX.Provider value={{allChats, sendChatAction, user}}>
               {props.children}
           </CTX.Provider>
-      )
-}
+      );
+};
 
-export default DataStore;
+// export default DataStore;

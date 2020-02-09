@@ -26,7 +26,12 @@ const io = require('socket.io')(server);
     socket.on('chat message', msg => {
         console.log('message: ' + JSON.stringify(msg));
         io.emit('message', msg);
-    })
+    });
+
+    // socket.on('disconnect', msg => {
+    //    io.emit('message', msg);
+
+    // })
 
   }
   );
