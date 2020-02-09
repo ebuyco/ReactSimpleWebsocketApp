@@ -7,12 +7,12 @@ const initState = {
         general: [
             {from: 'tata', msg: 'hello'},
             {from: 'tata1', msg: 'hello2'},
-            {from: 'tata2', msg: 'hello3'},  
+            {from: 'tata2', msg: 'hello3'},
         ],
         topic2: [
           {from: 'tata', msg: 'hello'},
           {from: 'tata1', msg: 'hello2'},
-          {from: 'tata2', msg: 'hello3'},  
+          {from: 'tata2', msg: 'hello3'},
         ]
 }
 
@@ -30,8 +30,8 @@ const reducer = (state, action) => {
                         }
                     ]
               }
-            default: 
-               return state  
+            default:
+               return state
       }
 }
 
@@ -49,7 +49,7 @@ const DataStore = (props) => {
   const [allChats, dispatch] = useReducer(reducer, initState);
 
         if (!socket){
-            socket = io('8081');
+            socket = io(':8081');
             socket.on('chat message', function(msg){
                dispatch({
                  type: 'RECEIVE_MESSAGE',
@@ -60,7 +60,7 @@ const DataStore = (props) => {
         }
 
         const user = 'ernie' + Math.random(100).toFixed(2);
-       
+
       return(
           <CTX.Provider value={{allChats, sendChatAction, user}}>
               {props.children}

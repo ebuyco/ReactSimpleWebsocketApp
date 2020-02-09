@@ -8,25 +8,28 @@ const handle = nextApp.getRequestHandler();
 const cookieParser = require('cookie-parser');
 const app = express();
 const server = require('http').createServer(app);
+
+
 const io = require('socket.io')(server);
 
+
+  io.on('connection', socket =>{
+    console.log('your connected ');
+    socket.on('message', msg => {
+        console.log('message: ' + JSON.stringify(msg));
+        socket.broadcast.emit('message', msg);
+    })
+
+  }
+  );
+
 nextApp.prepare().then(() => {
-  
+
 
     // app.get('/', function(req,res){
     //   res.send('<h1>HEllo world</h1>')
     //   })
 
-    io.on('connection', function(socket) {
-          console.log('your connected ');
-          socket.on('chat messages', function(msg){
-              console.log('message: ' + JSON.stringify(msg));
-             io.emit('chat message', msg);
-          })
-
-         
-      }
-      );
 
 
   app.use(cookieParser());
@@ -35,6 +38,8 @@ nextApp.prepare().then(() => {
 
 
   app.get('*', (req, res) => handle(req, res));
+
+
 
   server.listen(PORT, (err) => {
     if (err) throw err;
