@@ -1,6 +1,21 @@
 import React, { useState, useContext }  from 'react';
 import Cards from './styles/Cards';
 import { CTX } from './DataStore';
+import Link from './Test';
+import styled from 'styled-components'
+
+
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  ${props =>
+    props.active &&
+    'background-color: #d9e9fb; color: #444; font-weight: 500;'}
+`
+
+
 
 const MainComponent = () => {
       const [toggleVisible, setToggleHandler] = useState(false);
@@ -28,9 +43,18 @@ const MainComponent = () => {
       const [activeTopic, changeActiveTopic ] = useState(topics[0]);
       const [textValue, changeTextValue] = useState('');
 
+
+
   return(
         <>
+
           <Cards>
+              <StyledLink href='/' activeClassName="active">
+                    <a className='nav-link home-link'>Home</a>
+             </StyledLink>
+             <StyledLink href='/about' activeClassName="active">
+              <a className='nav-link'>About</a>
+            </StyledLink>
               <div className={`card__component ${addClass}`}>
                       <img src="../static/assets/av1.png" className="avatar__image" alt="avatar"/>
                       <div className="header__profile">
@@ -59,7 +83,7 @@ const MainComponent = () => {
                                       <ul>
                                             {
                                                 topics.map(topic => (
-                                                    <li 
+                                                    <li
                                                     key={topic}
                                                     onClick={(e) => changeActiveTopic(e.target.innerText)}
                                                     >
